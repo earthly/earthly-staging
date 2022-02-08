@@ -208,6 +208,7 @@ release-homebrew:
         --push \
         eval $(ssh-agent) && \
         cat /root/id_rsa | ssh-add - && \
+        echo "pushing to $RELEASE_BRANCH" && \
         git push --force --set-upstream origin "$RELEASE_BRANCH" && \
         curl -s -X POST -H 'Content-type: application/json' --data '{"text":"Successfully pushed release branch: https://github.com/earthly/homebrew-earthly/tree/'$RELEASE_BRANCH' (this branch will be automatically deleted via GHA once GHA deploy task finishes)"}' "$SLACK_WEBHOOK_URL"
 
