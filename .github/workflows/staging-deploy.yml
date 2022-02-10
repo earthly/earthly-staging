@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - '**-staging-test'
     paths-ignore:
       - 'docs/**'
 
@@ -48,7 +49,8 @@ jobs:
       - name: staging releases
         run: |-
             set -euo pipefail
-            export RELEASE_TAG="v0.0.$(date +%s)"
+            export SHA_DEC="$(echo "ibase=16; $(git rev-parse --short HEAD | tr '[:lower:]' '[:upper:]')" | bc)"
+            export RELEASE_TAG="v0.$(date +%s).$SHA_DEC"
             export earthly="./build/linux/amd64/earthly"
             eval "$(ssh-agent -s)"
             "$earthly" secrets get -n /earthly-technologies/github/griswoldthecat/id_rsa | ssh-add -
