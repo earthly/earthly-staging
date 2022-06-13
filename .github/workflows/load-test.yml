@@ -1,5 +1,8 @@
 name: Load Tests
 
+on:
+  workflow_dispatch:
+
 jobs:
   tests:
     name: load-test 1
