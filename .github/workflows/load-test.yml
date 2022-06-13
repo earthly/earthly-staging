@@ -1,13 +1,5 @@
 name: GitHub Actions Load Tests
 
-on:
-  push:
-    branches: [ main ]
-    paths-ignore: [ docs/** ]
-  pull_request:
-    branches: [ main ]
-    paths-ignore: [ docs/** ]
-
 jobs:
   tests:
     name: load-test 1
