@@ -282,13 +282,13 @@ earthly-linux-amd64:
         ) ./
     SAVE ARTIFACT ./*
 
-earthly-linux-arm7:
-    COPY (+earthly/* \
-        --GOARCH=arm \
-        --VARIANT=v7 \
-        --GO_EXTRA_LDFLAGS= \
-        ) ./
-    SAVE ARTIFACT ./*
+#earthly-linux-arm7:
+#    COPY (+earthly/* \
+#        --GOARCH=arm \
+#        --VARIANT=v7 \
+#        --GO_EXTRA_LDFLAGS= \
+#        ) ./
+#    SAVE ARTIFACT ./*
 
 earthly-linux-arm64:
     COPY (+earthly/* \
@@ -328,7 +328,7 @@ earthly-windows-amd64:
 
 earthly-all:
     COPY +earthly-linux-amd64/earthly ./earthly-linux-amd64
-    COPY +earthly-linux-arm7/earthly ./earthly-linux-arm7
+    #COPY +earthly-linux-arm7/earthly ./earthly-linux-arm7
     COPY +earthly-linux-arm64/earthly ./earthly-linux-arm64
     COPY +earthly-darwin-amd64/earthly ./earthly-darwin-amd64
     COPY +earthly-darwin-arm64/earthly ./earthly-darwin-arm64
