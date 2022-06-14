@@ -105,7 +105,7 @@ if [ "$existing_release" != "null" ]; then
     echo "overwriting existing release for $RELEASE_TAG"
 fi
 
-"$earthly" --push --build-arg DOCKERHUB_USER --build-arg RELEASE_TAG +release-dockerhub
+"$earthly" --push --build-arg DOCKERHUB_USER --build-arg RELEASE_TAG --build-arg PRERELEASE +release-dockerhub
 "$earthly" --push --build-arg GITHUB_USER --build-arg EARTHLY_REPO --build-arg BREW_REPO --build-arg DOCKERHUB_USER --build-arg RELEASE_TAG --build-arg SKIP_CHANGELOG_DATE_TEST --build-arg PRERELEASE="$PRERELEASE" $GITHUB_SECRET_PATH_BUILD_ARG +release-github
 
 if [ "$PRERELEASE" != "false" ]; then
