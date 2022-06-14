@@ -34,21 +34,21 @@ release-dockerhub:
     ARG --required RELEASE_TAG
     ARG DOCKERHUB_USER="earthly"
     BUILD ../+earthly-docker --TAG="$RELEASE_TAG"
-    BUILD \
-        --platform=linux/amd64 \
-        --platform=linux/arm/v7 \
-        --platform=linux/arm64 \
-        ../buildkitd+buildkitd \
-        --TAG="$RELEASE_TAG" \
-        --DOCKERHUB_USER="$DOCKERHUB_USER"
-    BUILD ../+earthly-docker --TAG=latest
-    BUILD \
-        --platform=linux/amd64 \
-        --platform=linux/arm/v7 \
-        --platform=linux/arm64 \
-        ../buildkitd+buildkitd \
-        --TAG=latest \
-        --DOCKERHUB_USER="$DOCKERHUB_USER"
+    #BUILD \
+    #    --platform=linux/amd64 \
+    #    --platform=linux/arm/v7 \
+    #    --platform=linux/arm64 \
+    #    ../buildkitd+buildkitd \
+    #    --TAG="$RELEASE_TAG" \
+    #    --DOCKERHUB_USER="$DOCKERHUB_USER"
+    #BUILD ../+earthly-docker --TAG=latest
+    #BUILD \
+    #    --platform=linux/amd64 \
+    #    --platform=linux/arm/v7 \
+    #    --platform=linux/arm64 \
+    #    ../buildkitd+buildkitd \
+    #    --TAG=latest \
+    #    --DOCKERHUB_USER="$DOCKERHUB_USER"
 
 release-notes:
     FROM python:3
