@@ -344,6 +344,7 @@ earthly-docker:
     COPY (+earthly/earthly --VERSION=$TAG --DEFAULT_INSTALLATION_NAME="earthly") /usr/bin/earthly
     ARG DOCKERHUB_USER="earthly"
     ARG DOCKERHUB_IMG="earthly"
+    RUN echo ACBTEST SAVE IMAGE --push --cache-from=earthly/earthly:main $DOCKERHUB_USER/$DOCKERHUB_IMG:$TAG
     SAVE IMAGE --push --cache-from=earthly/earthly:main $DOCKERHUB_USER/$DOCKERHUB_IMG:$TAG
 
 earthly-integration-test-base:

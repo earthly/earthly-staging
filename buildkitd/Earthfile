@@ -68,6 +68,7 @@ buildkitd:
 
     # Ensure that the image we save is a fully qualified name. Podman defaults to "localhost", while Docker defaults to
     # "docker.io". This keeps it consistent across both frontends.
+    RUN echo ACBTEST SAVE IMAGE --push --cache-from=$IMAGE_REGISTRY/earthly/buildkitd:main $IMAGE_REGISTRY/$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMG:$TAG
     SAVE IMAGE --push --cache-from=$IMAGE_REGISTRY/earthly/buildkitd:main $IMAGE_REGISTRY/$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMG:$TAG
 
 buildkit-sha:
