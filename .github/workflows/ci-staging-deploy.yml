@@ -58,7 +58,7 @@ jobs:
             export RELEASE_TAG="v0.$(date +%s).$SHA_DEC"
             export SKIP_CHANGELOG_DATE_TEST=true
             export S3_BUCKET="staging-pkg"
-            export earthly="./build/linux/amd64/earthly"
+            export earthly="$(pwd)/build/linux/amd64/earthly"
             echo "attempting staging-release version: $RELEASE_TAG"
             eval "$(ssh-agent -s)"
             "$earthly" secrets --org earthly-technologies --project core get -n littleredcorvette-id_rsa | ssh-add -
