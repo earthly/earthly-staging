@@ -123,7 +123,7 @@ release-github:
     # This may require work on the "variable types" proposal so that we can pass
     # our artifacts to our test targets.
     FOR release IN linux-amd64 linux-arm64 darwin-amd64 darwin-arm64 windows-amd64.exe
-        RUN grep "$DOCKERHUB_HOST/$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMAGE:$RELEASE_TAG" ./release/earthly-$release
+        RUN grep "$DOCKERHUB_HOST/$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMG:$RELEASE_TAG" ./release/earthly-$release
     END
 
     ARG GITHUB_SECRET_PATH="littleredcorvette-github-token"
