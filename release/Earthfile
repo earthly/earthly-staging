@@ -97,7 +97,7 @@ release-github:
     COPY +release-notes/notes.txt release-notes.txt
     COPY (../+earthly-all/* \
          --VERSION=$RELEASE_TAG \
-         --DEFAULT_BUILDKITD_IMAGE="$DOCKERHUB_HOST/$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMG:$RELEASE_TAG" \
+         --DEFAULT_BUILDKITD_IMAGE="$DOCKERHUB_USER/$DOCKERHUB_BUILDKIT_IMG:$RELEASE_TAG" \
          --DEFAULT_INSTALLATION_NAME="earthly" \
          ) ./release/
     RUN ls ./release
